@@ -9,9 +9,6 @@ trap '/opt/cbapp/init.sh stop' SIGTERM
 trap '/opt/cbapp/init.sh reload' SIGHUP
 
 echo 'Waiting signals...'
-while true
-do
-  wait
-done
+wait
 
 echo 'Stoping container...'
