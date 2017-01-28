@@ -10,6 +10,7 @@ You only need in the root of your Chicago Boss project add a file
 `Dokefile` like:
 ```Dockerfile
 FROM cbdocker:latest
+EXPOSE 80
 ```
 **NOTE:** the image base it's not uploaded in Docker hub still. It'll be uploaded soon.
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # This manage the CB app in the Docker container
 
 # Use a default Chicago Boss app name by default
@@ -14,7 +14,8 @@ function cbinit {
   # Recompile code for hot-reload
   if [ "$1" == "reload" ]; then
     echo 'Executing rebar compile'
-    rebar compile
+    # Use rebar wrapper for legacy
+    rebarw $CBAPP compile
   fi
   echo "Executing /opt/$CBAPP/init.sh $@"
   /opt/$CBAPP/init.sh $@

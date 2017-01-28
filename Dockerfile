@@ -9,11 +9,12 @@ ENTRYPOINT ["/bin/init", "cbapp"]
 # Triggers for child image build for Chicago Boss project
 ONBUILD WORKDIR /opt/cbapp
 ONBUILD COPY . /opt/cbapp
-ONBUILD RUN rebar compile
+ONBUILD RUN rebarw cbapp compile
 
 # Install Rebar3 and the init script
 ADD https://s3.amazonaws.com/rebar3/rebar3 /bin/rebar
 COPY init.sh /bin/init
+COPY rebarw.sh /bin/rebarw
 
 # Metadata of image
 LABEL maintainer="jhg.jesus@gmail.com"
@@ -27,4 +28,5 @@ RUN apk add --no-cache erlang && \
     chmod +x /bin/rebar && \
     ln -s /bin/rebar /bin/rebar3 && \
     chmod +x /bin/rebar3 && \
-    chmod +x /bin/init
+    chmod +x /bin/init && \
+    chmod +x /bin/rebarw
