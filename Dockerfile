@@ -24,7 +24,7 @@ LABEL description="Base for run Chicago Boss"
 ARG version
 LABEL version="$version"
 # Install latest version of Erlang and last steps
-RUN apk add --no-cache erlang && \
+RUN apk add --no-cache erlang erlang-crypto && \
     chmod +x /bin/rebar && \
     ln -s /bin/rebar /bin/rebar3 && \
     chmod +x /bin/rebar3 && \
