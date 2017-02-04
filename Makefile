@@ -1,5 +1,5 @@
 NAME=cbdocker
-VERSION=0.0.1
+VERSION=0.0.2
 ARGS=--network=host --build-arg version=$(VERSION)
 
 all:
